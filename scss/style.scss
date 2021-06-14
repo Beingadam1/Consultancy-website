@@ -10,66 +10,133 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
+
+  a {
+    text-decoration: none;
+    color: $dark-color;
+  }
+
+  .text-secondary {
+    color: $primary-color;
+  }
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: auto;
   padding: 0 2rem;
+  overflow: hidden;
 }
 
-// NAV SECTION
-header {
-  position: sticky;
-  top: 0;
+// header
+#home {
   z-index: 100;
-  background-color: $light-color;
+  position: relative;
 
-  .nav-container {
-    nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      height: 80px;
-      text-align: center;
+  .bar {
+    background-color: $light-color;
+    color: $dark-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    padding: 0 2rem;
 
-      .logo {
-        width: 300px;
-        width: 150px;
-      }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0;
 
-      a {
-        text-decoration: none;
-        color: $dark-color;
-        text-transform: capitalize;
-        font-weight: 400;
-        font-size: 1.2rem;
-        padding: 1.5rem 1rem;
+      &:hover {
+        letter-spacing: 2px;
+        @include easeOut;
       }
     }
 
-    svg {
-      position: absolute;
-      width: 100%;
-      left: 0;
-      height: 20px;
+    .social {
+      a {
+        margin-right: 0.4rem;
+        font-size: 1.2rem;
+        border: 1px solid $primary-color;
+        padding: 0.1rem 0.4rem;
+        border-radius: 5px;
 
-      path {
-        fill: $light-color;
+        &:hover {
+          background-color: $primary-color;
+          color: #fff;
+          @include easeOut;
+        }
+      }
+    }
+  }
+
+  nav {
+    background-color: $dark-color;
+    position: fixed;
+    top: 45px;
+    width: 100%;
+    @include easeOut;
+
+    &.active {
+      top: 0;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+      opacity: 0.65;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+
+      li {
+        margin-right: 2rem;
+
+        a {
+          color: #a0a0a0;
+          text-transform: capitalize;
+          font-size: 1.1rem;
+          position: relative;
+          padding: 0.3rem;
+
+          &:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            left: 0;
+            bottom: -7px;
+            background-color: $secondary-color;
+            @include easeOut;
+          }
+
+          &:hover {
+            color: #fff;
+          }
+
+          &:hover:after {
+            width: 100%;
+          }
+        }
       }
     }
   }
 }
 
-.showcase {
-  height: 100vh;
+// Showcase section
+#showcase {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 
   .video-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: inherit;
+    height: 100vh;
     overflow: hidden;
 
     video {
@@ -78,14 +145,40 @@ header {
     }
   }
 
-  .showcase-overlay {
+  .video-overlay {
+    background-color: $dark-color;
+    opacity: 0.75;
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
-    background: $primary-color;
-    opacity: 0.65;
     z-index: 1;
   }
+
+  .showcase-content {
+    z-index: 2;
+
+    h1 {
+      text-transform: capitalize;
+      font-size: 4.5rem;
+      margin-top: 0.3rem;
+      font-weight: 700;
+      line-height: 1.7;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      width: 55%;
+    }
+  }
+}
+
+.spy-section {
+  height: 90vh;
+  padding: 4vmin;
 }

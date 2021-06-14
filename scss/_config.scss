@@ -1,4 +1,9 @@
-$primary-color: #7868e6;
-$secondary-color: #b8b5ff;
+$primary-color: #29bb89;
+$secondary-color: #9fe6a0;
 $light-color: #edeef7;
-$dark-color: #111;
+$dark-color: #000;
+
+// Ease out
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
