@@ -28,6 +28,10 @@ body {
   overflow: hidden;
 }
 
+.text-primary {
+  color: $primary-color;
+}
+
 // header
 #home {
   z-index: 100;
@@ -165,20 +169,100 @@ body {
       margin-top: 0.3rem;
       font-weight: 700;
       line-height: 1.7;
-
-      span {
-        color: $primary-color;
-      }
     }
 
     p {
       font-size: 1.3rem;
       width: 55%;
+      margin-bottom: 0.5rem;
     }
   }
 }
 
-.spy-section {
-  height: 90vh;
-  padding: 4vmin;
+// About section
+#about {
+  margin-top: 10rem;
+
+  h2 {
+    text-transform: capitalize;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+
+    & div {
+      flex: 1;
+    }
+
+    .left {
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        color: $dark-color;
+        width: 20%;
+        align-self: center;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .right {
+      padding: 1.2rem 2.5rem;
+
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        .card {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+          margin-right: 1.5rem;
+
+          i {
+            margin-right: 1rem;
+            align-self: flex-start;
+            color: $primary-color;
+          }
+
+          .card-body {
+            h3 {
+              font-size: 1.2rem;
+              text-transform: capitalize;
+              border-bottom: 2px solid #ccc;
+            }
+
+            p {
+              padding-top: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }

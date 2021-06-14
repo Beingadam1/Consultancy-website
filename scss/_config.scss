@@ -7,3 +7,28 @@ $dark-color: #000;
 @mixin easeOut {
   transition: all 0.5s ease-out;
 }
+
+// Btns
+.btn {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  text-transform: capitalize;
+  border: none;
+  text-align: center;
+  outline: none;
+  @include easeOut;
+  color: #fff;
+  letter-spacing: 0;
+}
+
+.btn-primary {
+  @extend .btn;
+  border: 2px solid $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    letter-spacing: 1px;
+  }
+}
